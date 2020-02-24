@@ -3,18 +3,18 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class EditorialSchema extends Schema {
+class ApiSchema extends Schema {
   up () {
-    this.create('editorials', (table) => {
+    this.create('apis', (table) => {
       table.increments()
-      table.string('name').notNullable()
+      table.string('name').notNullable().unique().default('MyApi')
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('editorials')
+    this.drop('apis')
   }
 }
 
-module.exports = EditorialSchema
+module.exports = ApiSchema

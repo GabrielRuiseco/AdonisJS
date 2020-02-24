@@ -1,5 +1,5 @@
 'use strict'
-const Book = use('App/Models/Book')
+const User = use('App/Models/User')
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
@@ -7,30 +7,41 @@ const Book = use('App/Models/Book')
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 /**
- * Resourceful controller for interacting with books
+ * Resourceful controller for interacting with users
  */
-class BookController {
+class UserController {
+
+  async login({request, response}) {
+    const {user}=request.post()
+    response.route('TokenController.store')
+    response.status(200).json({
+      message: 'succesfully login',
+      data: user
+    })
+
+  }
+
   /**
-   * Show a list of all books.
-   * GET books
+   * Show a list of all users.
+   * GET users
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index({request, response, view}) {
-    const books = await Book.all()
+  async index({request, response}) {
+    const users = await User.all()
 
     response.status(200).json({
-      message: 'Here are your books.',
-      data: books
+      message: 'Here are your users.',
+      data: users
     })
   }
 
   /**
-   * Render a form to be used for creating a new book.
-   * GET books/create
+   * Render a form to be used for creating a new user.
+   * GET users/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -41,27 +52,29 @@ class BookController {
   }
 
   /**
-   * Create/save a new book.
-   * POST books
+   * Create/save a new user.
+   * POST users
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
   async store({request, response}) {
-    const {name, author, editorial, category} = request.post()
+    const {email, password} = request.post()
 
-    const book = await Book.create({name, author, editorial, category})
+    const user = await User.create({email, password, username: email})
+
+    const tok = await this.login(...arguments);
 
     response.status(201).json({
-      message: 'succesfully created a new book',
-      data: book
+      message: 'succesfully created a new user',
+      data: user, tok
     })
   }
 
   /**
-   * Display a single book.
-   * GET books/:id
+   * Display a single user.
+   * GET users/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -70,14 +83,14 @@ class BookController {
    */
   async show({request, response}) {
     response.status(200).json({
-      message: 'Here is your book.',
-      data: request.post().book
+      message: 'Here is your user.',
+      data: request.post().user
     })
   }
 
   /**
-   * Render a form to update an existing book.
-   * GET books/:id/edit
+   * Render a form to update an existing user.
+   * GET users/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -88,8 +101,8 @@ class BookController {
   }
 
   /**
-   * Update book details.
-   * PUT or PATCH books/:id
+   * Update user details.
+   * PUT or PATCH users/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -97,32 +110,32 @@ class BookController {
    */
   async update({request, response}) {
     const {name} = request.post()
-    await book.save()
+    await user.save()
 
     response.status(200).json({
-      message: 'Successfully updated this book.',
-      data: book
+      message: 'Successfully updated this user.',
+      data: user
     })
   }
 
   /**
-   * Delete a book with id.
-   * DELETE books/:id
+   * Delete a user with id.
+   * DELETE users/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
   async delete({request, response, params: {id}}) {
-    const book = request.post().book
+    const user = request.post().user
 
-    await book.delete()
+    await user.delete()
 
     response.status(200).json({
-      message: 'Successfully deleted this book.',
+      message: 'Successfully deleted this user.',
       id
     })
   }
 }
 
-module.exports = BookController
+module.exports = UserController

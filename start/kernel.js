@@ -13,6 +13,7 @@ const Server = use('Server')
 |
 */
 const globalMiddleware = [
+  'Adonis/Middleware/AuthInit',
   'Adonis/Middleware/BodyParser',
   'App/Middleware/ConvertEmptyStringsToNull'
 ]
@@ -36,7 +37,15 @@ const globalMiddleware = [
 */
 const namedMiddleware = {
   auth: 'Adonis/Middleware/Auth',
-  guest: 'Adonis/Middleware/AllowGuestOnly'
+  guest: 'Adonis/Middleware/AllowGuestOnly',
+  findApi: 'App/Middleware/FindApi',
+  findUser:'App/Middleware/FindUser',
+  findAuthor:'App/Middleware/FindAuthor',
+  findBook:'App/Middleware/FindBook',
+  findCategory:'App/Middleware/Category',
+  findEditorial:'App/Middleware/FindEditorial',
+  findToken:'App/Middleware/FindToken',
+  login:'App/Middleware/Login',
 }
 
 /*

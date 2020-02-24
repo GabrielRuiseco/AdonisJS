@@ -1,11 +1,10 @@
 'use strict'
-const Author = use('App/Models/Author')
-
+const Token = use('App/Models/Token')
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
-class FindAuthor {
+class FindToken {
   /**
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -13,19 +12,19 @@ class FindAuthor {
    */
   async handle ({ request, response }, next) {
     const id=request.body.id;
-    const author = await Author.find(id);
+    const token = await Token.find(id)
 
-    if (!author) {
+    if (!token) {
       return response.status(404).json({
-        message: 'Author not found.',
+        message: 'Token not found.',
         id
       })
     }
 
-    request.body.author = author
-
+    request.body.token = token
+    // call next to advance the request
     await next()
   }
 }
 
-module.exports = FindAuthor
+module.exports = FindToken

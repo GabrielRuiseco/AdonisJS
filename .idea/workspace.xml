@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bab48fe-62fb-4d58-a6ce-cca0312f3b5b" name="Default Changelist" comment="" />
+    <list default="true" id="0bab48fe-62fb-4d58-a6ce-cca0312f3b5b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/Http/AuthorController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Http/AuthorController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/Http/BookController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Http/BookController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Middleware/FindAuthor.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Middleware/FindAuthor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Middleware/FindBook.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Middleware/FindBook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Middleware/FindCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Middleware/FindCategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Middleware/FindEditorial.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Middleware/FindEditorial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Book.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Book.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/1503250034279_user.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/1503250034279_user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/1503250034280_token.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/1503250034280_token.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/1582159516467_editorial_schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/1582159516467_editorial_schema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/1582159696235_category_schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/1582159696235_category_schema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/1582159703097_book_schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/1582159703097_book_schema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/start/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start/kernel.js" beforeDir="false" afterPath="$PROJECT_DIR$/start/kernel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/start/routes.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +46,14 @@
     <expand />
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="API" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1Y2wCunwAawHcmyWXFk7LMNz1qF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -34,6 +61,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -41,7 +69,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -74,7 +102,9 @@
       <workItem from="1582160076402" duration="339000" />
       <workItem from="1582305020018" duration="1161000" />
       <workItem from="1582382801588" duration="10377000" />
-      <workItem from="1582400166483" duration="1934000" />
+      <workItem from="1582400166483" duration="41376000" />
+      <workItem from="1582503052613" duration="8646000" />
+      <workItem from="1582550416590" duration="1330000" />
     </task>
     <servers />
   </component>
@@ -86,13 +116,25 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1582391934420" />
-    <state x="184" y="7" key="SettingsEditor" timestamp="1582400280591">
+    <state x="306" y="0" key="CommitChangelistDialog2" timestamp="1582405547120">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1582400280591" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1582382836354">
+    <state x="306" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1582405547120" />
+    <state x="184" y="7" key="SettingsEditor" timestamp="1582405805452">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1582382836354" />
+    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1582405805452" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1582550414258">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1582550414258" />
+    <state x="369" y="80" width="627" height="568" key="find.popup" timestamp="1582406110160">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="369" y="80" width="627" height="568" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1582406110160" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1582420258096">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1582420258096" />
   </component>
 </project>

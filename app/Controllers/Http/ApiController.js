@@ -1,18 +1,17 @@
 'use strict'
-const Book = use('App/Models/Book')
+const Api = use('App/Models/Api')
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
-
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 /**
- * Resourceful controller for interacting with books
+ * Resourceful controller for interacting with apis
  */
-class BookController {
+class ApiController {
   /**
-   * Show a list of all books.
-   * GET books
+   * Show a list of all apis.
+   * GET apis
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -20,17 +19,17 @@ class BookController {
    * @param {View} ctx.view
    */
   async index({request, response, view}) {
-    const books = await Book.all()
+    const apis = await Api.all()
 
     response.status(200).json({
-      message: 'Here are your books.',
-      data: books
+      message: 'Here are your apis.',
+      data: apis
     })
   }
 
   /**
-   * Render a form to be used for creating a new book.
-   * GET books/create
+   * Render a form to be used for creating a new api.
+   * GET apis/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -41,27 +40,27 @@ class BookController {
   }
 
   /**
-   * Create/save a new book.
-   * POST books
+   * Create/save a new api.
+   * POST apis
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
   async store({request, response}) {
-    const {name, author, editorial, category} = request.post()
+    const {name} = request.post()
 
-    const book = await Book.create({name, author, editorial, category})
+    const api = await Api.create({name})
 
     response.status(201).json({
-      message: 'succesfully created a new book',
-      data: book
+      message: 'succesfully created a new api',
+      data: api
     })
   }
 
   /**
-   * Display a single book.
-   * GET books/:id
+   * Display a single api.
+   * GET apis/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -70,14 +69,14 @@ class BookController {
    */
   async show({request, response}) {
     response.status(200).json({
-      message: 'Here is your book.',
-      data: request.post().book
+      message: 'Here is your api.',
+      data: request.post().api
     })
   }
 
   /**
-   * Render a form to update an existing book.
-   * GET books/:id/edit
+   * Render a form to update an existing api.
+   * GET apis/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -88,8 +87,8 @@ class BookController {
   }
 
   /**
-   * Update book details.
-   * PUT or PATCH books/:id
+   * Update api details.
+   * PUT or PATCH apis/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -97,32 +96,32 @@ class BookController {
    */
   async update({request, response}) {
     const {name} = request.post()
-    await book.save()
+    await api.save()
 
     response.status(200).json({
-      message: 'Successfully updated this book.',
-      data: book
+      message: 'Successfully updated this api.',
+      data: api
     })
   }
 
   /**
-   * Delete a book with id.
-   * DELETE books/:id
+   * Delete a api with id.
+   * DELETE apis/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
   async delete({request, response, params: {id}}) {
-    const book = request.post().book
+    const api = request.post().api
 
-    await book.delete()
+    await api.delete()
 
     response.status(200).json({
-      message: 'Successfully deleted this book.',
+      message: 'Successfully deleted this api.',
       id
     })
   }
 }
 
-module.exports = BookController
+module.exports = ApiController

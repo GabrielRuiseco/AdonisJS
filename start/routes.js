@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
 |--------------------------------------------------------------------------
@@ -14,38 +14,61 @@
 */
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
-const Route = use('Route')
+const Route = use('Route');
 
 Route.get('/', () => {
   return {greeting: 'Hello world in JSON'}
-})
+});
 
-Route.get('/index', 'IndexController.index')
+Route.get('/index', 'IndexController.index');
+
+//api
+Route.get('api', 'ApiController.index').middleware(['auth']);
+Route.get('api/:id', 'ApiController.show').middleware(['auth']).middleware(['findApi']);
+Route.post('api', 'ApiController.store').middleware(['auth']);
+Route.patch('api/:id', 'ApiController.update').middleware(['auth']).middleware(['findApi']);
+Route.delete('api/:id', 'ApiController.delete').middleware(['auth']).middleware(['findApi']);
+
+
+//token
+Route.get('token', 'TokenController.index').middleware(['auth']);
+Route.get('token/show', 'TokenController.show').middleware(['auth']).middleware(['findToken']);
+Route.post('user/login', 'TokenController.store').middleware(['login']);
+Route.patch('token/update', 'TokenController.update').middleware(['auth']).middleware(['findToken']);
+Route.delete('token/delete', 'TokenController.delete').middleware(['auth']).middleware(['findToken']);
+
+// user
+Route.get('user', 'UserController.index').middleware(['auth'])
+Route.get('user/show', 'UserController.show').middleware(['auth']).middleware(['findUser']);
+Route.post('user', 'UserController.store');
+Route.patch('user/:id', 'UserController.update').middleware(['auth']).middleware(['findUser']);
+Route.delete('user/:id', 'UserController.delete').middleware(['auth']).middleware(['findUser']);
+Route.post('user/login', 'UserController.login').middleware(['login']);
 
 // book
-Route.get('book', 'BookController.index')
-Route.get('book/:id', 'BookController.show').middleware(['findBook'])
-Route.post('book', 'BookController.store')
-Route.patch('book/:id', 'BookController.update').middleware(['findBook'])
-Route.delete('book/:id', 'BookController.delete').middleware(['findBook'])
+Route.get('book', 'BookController.index').middleware(['auth']);
+Route.get('book/:id', 'BookController.show').middleware(['auth']).middleware(['findBook']);
+Route.post('book', 'BookController.store').middleware(['auth']);
+Route.patch('book/:id', 'BookController.update').middleware(['auth']).middleware(['findBook']);
+Route.delete('book/:id', 'BookController.delete').middleware(['auth']).middleware(['findBook']);
 
 // author
-Route.get('author', 'AuthorController.index')
-Route.get('author/:id', 'AuthorController.show').middleware(['findAuthor'])
-Route.post('author', 'AuthorController.store')
-Route.patch('author/:id', 'AuthorController.update').middleware(['findAuthor'])
-Route.delete('author/:id', 'AuthorController.delete').middleware(['findAuthor'])
+Route.get('author', 'AuthorController.index').middleware(['auth']);
+Route.get('author/show', 'AuthorController.show').middleware(['auth']).middleware(['findAuthor']);
+Route.post('author', 'AuthorController.store').middleware(['auth']);
+Route.patch('author/:id', 'AuthorController.update').middleware(['auth']).middleware(['findAuthor']);
+Route.delete('author/:id', 'AuthorController.delete').middleware(['auth']).middleware(['findAuthor']);
 
 // category
-Route.get('category', 'CategoryController.index')
-Route.get('category/:id', 'CategoryController.show').middleware(['findCategory'])
-Route.post('category', 'CategoryController.store')
-Route.patch('category/:id', 'CategoryController.update').middleware(['findCategory'])
-Route.delete('category/:id', 'CategoryController.delete').middleware(['findCategory'])
+Route.get('category', 'CategoryController.index').middleware(['auth']);
+Route.get('category/:id', 'CategoryController.show').middleware(['auth']).middleware(['findCategory']);
+Route.post('category', 'CategoryController.store').middleware(['auth']);
+Route.patch('category/:id', 'CategoryController.update').middleware(['auth']).middleware(['findCategory']);
+Route.delete('category/:id', 'CategoryController.delete').middleware(['auth']).middleware(['findCategory']);
 
 // editorial
-Route.get('editorial', 'EditorialController.index')
-Route.get('editorial/:id', 'EditorialController.show').middleware(['findEditorial'])
-Route.post('editorial', 'EditorialController.store')
-Route.patch('editorial/:id', 'EditorialController.update').middleware(['findEditorial'])
-Route.delete('editorial/:id', 'EditorialController.delete').middleware(['findEditorial'])
+Route.get('editorial', 'EditorialController.index').middleware(['auth']);
+Route.get('editorial/:id', 'EditorialController.show').middleware(['auth']).middleware([ 'findEditorial']);
+Route.post('editorial', 'EditorialController.store').middleware(['auth']);
+Route.patch('editorial/:id', 'EditorialController.update').middleware(['auth']).middleware([ 'findEditorial']);
+Route.delete('editorial/:id', 'EditorialController.delete').middleware(['auth']).middleware([ 'findEditorial']);

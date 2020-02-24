@@ -1,11 +1,11 @@
 'use strict'
-const Author = use('App/Models/Author')
+const Api = use('App/Models/Api')
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
-class FindAuthor {
+class FindApi {
   /**
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -13,19 +13,19 @@ class FindAuthor {
    */
   async handle ({ request, response }, next) {
     const id=request.body.id;
-    const author = await Author.find(id);
+    const api = await Api.find(id)
 
-    if (!author) {
+    if (!api) {
       return response.status(404).json({
-        message: 'Author not found.',
+        message: 'Api not found.',
         id
       })
     }
 
-    request.body.author = author
+    request.body.api = api
 
     await next()
   }
 }
 
-module.exports = FindAuthor
+module.exports = FindApi

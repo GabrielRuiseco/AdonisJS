@@ -11,7 +11,8 @@ class FindCategory {
    * @param {Request} ctx.request
    * @param {Function} next
    */
-  async handle ({ request }, next) {
+  async handle ({ request, response }, next) {
+    const id=request.body.id;
     const category = await Category.find(id)
 
     if (!category) {
